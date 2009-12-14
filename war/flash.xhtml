@@ -1,0 +1,23 @@
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+   <h:head id="head">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Example of JSF 2.0 Flash Functionality</title>
+   </h:head>
+   <h:body id="body">
+      <h:form>
+         <p>Value for Next Page
+         <h:inputText value="#{flash.myValue}" size="25" maxLength="25"/></p>
+         <p>
+            <h:commandButton id="submit" action="flash_page2" 
+                             value="Next page"/>
+         </p>
+      </h:form>
+      
+   </h:body>
+</html>
