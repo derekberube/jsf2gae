@@ -36,58 +36,47 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:gn="http://java.sun.com/jsf/demo/guessnumber">
-<h:head>
-    <title>GuessNumber 2.0</title>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:gn="http://java.sun.com/jsf/demo/guessnumber">
+<h:head id="head">
+	<title>GuessNumber 2.0</title>
 </h:head>
-<h:body bgcolor="white">
-    <h:form id="helloForm">
-        <h2>
-            #{userNumberBean.greeting}
-        </h2>
-        <img src="#{resource['images:wave.med.gif']}" alt="Hello!"/>
-        <h:inputText id="userNo" label="User Number" required="true"
-                     value="#{userNumberBean.userNumber}">
-            <gn:validator minimum="#{userNumberBean.minimum}"
-                          maximum="#{userNumberBean.maximum}"/>
-            <f:convertNumber type="number" integerOnly="true"/>
-        </h:inputText>
-        <h:commandButton id="submit" action="response?faces-redirect=true" value="Guess!"/>
-        <p/>
-        <h:outputStylesheet name="css/styles.css"/>
-        <h:message showSummary="true" showDetail="false"
-                   errorClass="error"
-                   id="errors1" for="userNo"/>
+<h:body id="body">
+	<h:outputStylesheet name="styles.css" library="guess" target="head" />
+	<h:form id="helloForm">
+		<h2>#{userNumberBean.greeting}</h2>
+		<img src="#{resource['guess/wave.med.gif']}" alt="Hello!" />
+		<h:inputText id="userNo" label="User Number" required="true"
+			value="#{userNumberBean.userNumber}">
+			
+			<f:convertNumber type="number" integerOnly="true" />
+		</h:inputText>
+		<h:commandButton id="submit" action="response?faces-redirect=true"
+			value="Guess!" />
+		<p/>
+		<h:message showSummary="true" showDetail="false" errorClass="error"
+			id="errors1" for="userNo" />
+	</h:form>
 
-    </h:form>
-
-    <hr/>
-    <p id="about">
-        Take a quick look at the Facelet page.  Notice that there is no script
-        or link references as children of &lt;h:head&gt;.  These resources
-        leverage the new event system introduced in JSF 2.0.
-    </p>
-    <p>
-        The script resource is generated when the Validator is added to the
-        UIInput.  The external stylesheet reference is referenced by Facelet tag
-        within the form, but is utimately rendered in the head.
-    </p>
-    <p>
-        Now, enter a non-digit character into the input field and change focus.
-        Notice a JS Alert is present stating the input is not correct.
-        The inputText definition in the Facelet page has no onmouseout definiton,
-        but the generated source does.  This is accomplished by the custom Validator
-        listening for a BeforeRenderEvent being triggered by the inputText component.
-        When the Validator listener method is invoked, it adds the necessary javascript
-        information to the input component.
-    </p>
-    <p>
-        The resource system is put to work in other ways as well.  Notice that in
-        the Facelet pages, the image URLs are generated via expressions instead of
-        graphicImage components. 
-    </p>
+	<hr/>
+	<p id="about">Take a quick look at the Facelet page. Notice that
+		there is no script or link references as children of &lt;h:head&gt;.
+		These resources leverage the new event system introduced in JSF 2.0.</p>
+	<p>The script resource is generated when the Validator is added to
+		the UIInput. The external stylesheet reference is referenced by
+		Facelet tag within the form, but is utimately rendered in the head.</p>
+	<p>Now, enter a non-digit character into the input field and change
+		focus. Notice a JS Alert is present stating the input is not correct.
+		The inputText definition in the Facelet page has no onmouseout
+		definiton, but the generated source does. This is accomplished by the
+		custom Validator listening for a BeforeRenderEvent being triggered by
+		the inputText component. When the Validator listener method is
+		invoked, it adds the necessary javascript information to the input
+		component.</p>
+	<p>The resource system is put to work in other ways as well. Notice
+		that in the Facelet pages, the image URLs are generated via
+		expressions instead of graphicImage components.</p>
 </h:body>
-</html>  
+</html>
