@@ -3,6 +3,6 @@
       <title>Initial Redirect Page</title>
    </head>
    <body>
-   <% response.sendRedirect("flash.jsf"); %>
+   <% response.sendRedirect("welcome.jsf"); %>
    </body>
 </html>
