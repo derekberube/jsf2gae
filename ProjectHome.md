@@ -1,0 +1,1 @@
+This project houses the source code for JSF 2 examples applications configured to run on the Google App Engine platform.
